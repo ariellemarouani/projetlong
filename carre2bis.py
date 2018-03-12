@@ -171,15 +171,15 @@ for lim in np.arange(0,2501,100):
     
     fig, axes = plt.subplots()
     axes.imshow(-GRAD, aspect='auto', cmap=MAP_C)
-    plt.title("Zone contenant les profondeurs de MLD > "+str(lim)+"m")
+    plt.title("Zone contenant les MLD > "+str(lim)+"m")
 
     axes.plot(CARRE_X,CARRE_Y,color='black')
     fig.colorbar(surf, shrink=0.5, aspect=5)
-    fig.savefig("images/zone"+str(lim)+".png")
+    fig.savefig("images/zone/zone"+str(lim)+".png")
     plt.show()
 
 plt.plot(np.arange(0,2501,100),AIR)
-plt.xlabel('Profondeur de MDL la plus petite')
+plt.xlabel('MDL la plus petite')
 plt.ylabel('Air de la zone')
 plt.savefig("images/coude.png")
 
@@ -190,11 +190,11 @@ for p in np.arange(100):
 
 plt.plot(np.arange(100),q3)
 plt.xlabel("Percentiles")
-plt.ylabel("Ecart entre la profondeur de MLD\nde base et apres filtre median")
+plt.ylabel("Ecart entre la MLD de base\net apres filtre median")
 plt.savefig("images/quartile.png")
 
 plt.hist(vect[vect>=q3[90]], bins=1000)
-plt.xlabel("Ecart entre la profondeur de MLD de base et apres filtre median")
+plt.xlabel("Ecart entre la MLD de base et apres filtre median")
 plt.ylabel("Nombre de points")
 plt.savefig("images/histo.png")
 
